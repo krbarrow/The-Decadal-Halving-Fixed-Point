@@ -348,83 +348,141 @@ please write a commit message for adding the following:
 
 ---
 
-### VIIi. Structural Remedies: Poverty Gap Eradication and Logarithmic Credit Surcharges
+### VIII. Balance-Sheet Duality, Access Vector Constraints, and Remediation Bounds
 
-To complete the macroeconomic asset-liability duality established in **Theorem 3**, we formalize the extraction mechanics connecting upper-tail capital accumulation ($p \le 0.10$) to lower-tier debt liabilities ($1-p$), and derive the quantitative parameters required to stabilize the tail at the **Barrow Fixed Point** ($b^* = \log_2(10) \approx 3.322$).
-
----
-
-#### 8.1 The Macroeconomic Siphon and the "Biological Extraction Sink"
-
-In a closed credit economy, upper-tail capital claims ($A(p)$) do not compound in isolation. Under non-homothetic saving preferences, the top 1% captures and banks up to 40% of their marginal income, while the personal saving rate of the bottom 50% hovers near 0%. Because aggregate physical capital investment has declined relative to national income, excess savings from top earners are systematically channeled into financing lower-tier household liabilities ($L(1-p)$)—primarily mortgages, consumer credit, and public debt.
-
-This creates a continuous, directional transfer of liquidity $J_{\text{debt}}$ from debt-constrained borrowers to wealthy asset holders:
-
-$$J_{\text{debt}} = r_L \cdot L(1-p)$$
-
-where $r_L$ represents the effective nominal interest rate on lower-decile liabilities. Because labor earnings for the bottom 90% are bounded by biological lifespans, wage growth ($g$), and debt-service capacity, $J_{\text{debt}}$ acts as a permanent structural drag on aggregate demand. Lower-decile human capital effectively functions as a **biological extraction sink**, where labor income is continuously extracted to service upper-tail asset compounding ($r_{\text{net}} > g$), depressing the natural rate of interest ($r^*$) toward its effective lower bound.
+To bridge upper-tail Pareto compounding ($p \le 0.10$) with lower-tier balance sheets ($q = 1-p \in (0.10, 1.0]$), we reframe lower-decile health and material outcomes through structural balance-sheet analysis. Rather than attributing lower-tail health gradients to behavioral choices, we model human capital degradation as a mechanical consequence of deferred physical capital maintenance under non-discretionary liquidity constraints, inventory indivisibilities, and regressive out-of-pocket health frictions.
 
 ---
 
-#### 8.2 Quantitative Proof: Top 1% Net Proceeds vs. The Annual Poverty Gap
+#### VIII.A Non-Linear Health Capital Depreciation, Dietary Frictions, and Regressive Access
 
-To evaluate the mathematical feasibility of eradicating this balance-sheet friction, we compare the annual net proceeds of the top 1% against the total national poverty gap.
+In physical asset accounting, withholding maintenance expenditure below the rate of physical depreciation leads directly to accelerated capital decay. For households in lower wealth deciles ($W_i < C_{\text{essential}}$), human stamina and health $A_{\text{human}}$ function as primary income-generating assets.
 
-Let $Y_{\text{nat}} \approx \$20.0 \text{ Trillion}$ represent aggregate US National Income. The top 1% income share $S_{1\%}$ captures approximately $17.5\%$ of pre-tax national income, generating annual gross realizations $Y_{1\%}$:
+##### 1. Regressive Effective Healthcare Burden ($\tau_{\text{health}}$)
+While standard income and capital taxes scale with earnings ($T = \tau \cdot Y$), mandatory out-of-pocket medical liabilities $C_{\text{med}}$ (premiums, deductibles, and copayments) act as an inelastic fixed expenditure threshold. We define the effective healthcare cost burden $\tau_{\text{health}}(Y)$ as:
 
-$$Y_{1\%} = S_{1\%} \cdot Y_{\text{nat}} \approx 0.175 \times \$20.0 \text{ Trillion} = \mathbf{\$3.50 \text{ Trillion / year}}$$
+$$\tau_{\text{health}}(Y) = \frac{\min(C_{\text{med}}, C_{\text{out\_of\_pocket\_max}})}{Y}$$
 
-The annual **US Poverty Gap** ($\Omega_{\text{poverty}}$)—defined as the total dollar amount required to raise every household below the official poverty threshold up to that threshold—is estimated at approximately:
+Because nominal copays $C_{\text{copay}}$ act as discrete fixed costs invariant to liquid net worth $W_{\text{liquid}}$, the marginal cost friction satisfies:
 
-$$\Omega_{\text{poverty}} \approx \mathbf{\$180 \text{ Billion / year}} \quad (0.90\% \text{ of } Y_{\text{nat}})$$
+$$\frac{\partial \tau_{\text{health}}}{\partial Y} < 0 \quad \implies \quad \lim_{Y \to C_{\text{essential}}} \tau_{\text{health}}(Y) \gg \lim_{Y \to \infty} \tau_{\text{health}}(Y)$$
 
-**Theorem 4 (Poverty Gap Coverage Horizon)**: Let $\Delta R_{1/2} = 0.50 \cdot Y_{1\%} = \$1.75 \text{ Trillion}$ denote 50% of the net annual proceeds captured by the top 1% in a single year. The poverty eradication horizon $H_{\text{poverty}}$ funded by one year of this single-fraction allocation is:
+* **Upper Tail ($Y \to \infty$)**: $\tau_{\text{health}}(Y) \to 0$. High liquidity buffers and statutory out-of-pocket maximums render healthcare expenditures economically negligible relative to capital income.
+* **Lower Tail ($Y \to C_{\text{essential}}$)**: $\tau_{\text{health}}(Y)$ absorbs a substantial fraction of net disposable cash flow, creating a non-linear liquidity drain.
 
-$$H_{\text{poverty}} = \frac{\Delta R_{1/2}}{\Omega_{\text{poverty}}} = \frac{\$1.75 \text{ Trillion}}{\$0.18 \text{ Trillion / year}} \approx \mathbf{9.72 \text{ Years}}$$
+##### 2. Dietary Indivisibility, Spoilage Decay, and Time-Poverty Multipliers
+We formalize the household nutrition vector $N$ as a function of liquid capital $W_{\text{liquid}}$, preparation time capacity $T_{\text{prep}}$, and package indivisibility constraints. Let $Q_k$ represent the minimum package quantity of a perishable nutrient $k$ with decay constant $\lambda_{\text{spoil}}$. The effective consumption yield $Y_{\text{food}}$ after spoilage loss satisfies:
 
-> **Corollary 4.1**: Appropriating **50% of the net annual proceeds of the top 1% for just a single calendar year** generates sufficient capital to **completely eliminate the national poverty gap for nearly 10 consecutive years**.
+$$Y_{\text{food}} = Q_k \cdot \left( 1 - e^{-\lambda_{\text{spoil}} \cdot t_{\text{cons}}} \right)$$
+
+where $t_{\text{cons}} = \frac{Q_k}{N_{\text{hh}} \cdot c_{\text{daily}}}$ is the household consumption duration, governed by household size $N_{\text{hh}}$ and daily per-capita consumption rate $c_{\text{daily}}$. Because lower-wealth households ($W_{\text{liquid}} < C_{\text{bulk}}$) cannot optimize across diverse bulk inventories without incurring decay loss, they face a binary constraint:
+
+$$\text{Cost per Effective Calorie} = \frac{P_{\text{package}}}{Y_{\text{food}}} = 
+\begin{cases} 
+P_{\text{high\_unit\_cost}} & \text{if purchasing small discrete quantities} \\
+P_{\text{low\_unit\_cost}} + \Delta W_{\text{spoil}} & \text{if purchasing bulk indivisible packages}
+\end{cases}$$
+
+Furthermore, nutritional utility depends on available non-labor time $T_{\text{prep}}$, which is constrained by market labor hours ($H_{\text{work}}$) and biological life-hour limits. Defining health capital depreciation $\frac{d A_{\text{human}}}{dt}$ as a function of nutritional density $N(Y_{\text{food}})$ and time poverty $T_{\text{prep}}$, we obtain:
+
+$$\frac{d A_{\text{human}}}{dt} = -\delta_0 \cdot \left( 1 + \alpha_1 e^{-\beta_1 N(Y_{\text{food}})} + \alpha_2 e^{-\beta_2 T_{\text{prep}}} \right)$$
+
+Lower-tail households thus operate under a persistent structural penalty: higher nominal costs per consumed micronutrient, higher real capital loss via forced spoilage or indivisibility surcharges, and accelerated health capital decay induced by unavoidable time scarcity.
+
+##### 3. Threshold-Gated Human Capital Depreciation & Unified Hazard Mechanics
+When immediate liquid buffer capacity falls below copay or bulk inventory thresholds ($W_{\text{liquid}} < \max(C_{\text{copay}}, C_{\text{bulk}})$), households engage in **rationed preventive maintenance**. This introduces a threshold-gated health depreciation function:
+
+$$\frac{d A_{\text{human}}}{dt} = -\delta_0 \cdot \exp\left( \gamma_1 \cdot \mathbf{1}_{\{W_{\text{liquid}} < C_{\text{copay}}\}} + \gamma_2 \cdot \mathbf{1}_{\{W_{\text{liquid}} < C_{\text{bulk}}\}} \right)$$
+
+where $\delta_0$ represents baseline biological aging, $\mathbf{1}_{\{\cdot\}}$ is an indicator function for liquidity insolvency below mandatory friction thresholds, and $\gamma_1, \gamma_2 > 0$ are accelerated degradation multipliers resulting from delayed medical or nutritional intervention.
+
+Combining material liquidity deficits $\Phi(Y_i) = \max\left(0, \frac{C_{\text{essential}} - Y_i}{C_{\text{essential}}}\right)$ with threshold-gated copay and time-poverty frictions, the instantaneous mortality/morbidity hazard rate $\mu(x, Y_i, W_{\text{liquid}}, T_{\text{prep}})$ is formalised as:
+
+$$\mu(x, Y_i, W_{\text{liquid}}, T_{\text{prep}}) = \left(a e^{bx}\right) \cdot \exp\left( \lambda \cdot \Phi(Y_i) + \gamma_1 \cdot \mathbf{1}_{\{W_{\text{liquid}} < C_{\text{copay}}\}} + \alpha_2 e^{-\beta_2 T_{\text{prep}}} \right)$$
+
+where $a e^{bx}$ is the baseline Gompertz-Makeham hazard rate at age $x$, and $\lambda > 0$ is the Material Depletion Coefficient. Deferred maintenance in the preventive phase accelerates underlying biological decay, culminating in acute condition failure and emergency care—converting a manageable preventive cost into a catastrophic debt shock ($\Delta L$).
 
 ---
 
-#### 8.3 Credit Surcharges and Logarithmic Interest Capping ($\tau_K \propto \log(W)$)
+#### VIII.B Non-Linear Financial Liability Transmission ($\Delta A = \beta \cdot \Delta L$)
 
-Rather than relying purely on retrospective income reallocation, the structural balance-sheet coupling ($\Delta A(p) = \beta \cdot \Delta L(1-p)$) allows for real-time stabilization via credit-market indexing and progressive capital taxation.
+Because survival requirements ($C_{\text{essential}}$) and medical liabilities ($C_{\text{med}}$) are inelastic relative to lower-decile earnings, lower-tail balance sheets exhibit extreme structural fragility.
 
-##### A. Poverty Gap Credit Surcharge
-Total US household debt stands at $D_{\text{total}} \approx \$16.5 \text{ Trillion}$. To fund Poverty Gap Insurance ($\Omega_{\text{poverty}} = \$180 \text{B/year}$) directly from financial intermediation, the required universal credit surcharge $\theta_{\text{poverty}}$ across outstanding debt principal is:
+```
+                 NON-LINEAR LIABILITY TRANSMISSION PIPELINE
 
-$$\theta_{\text{poverty}} = \frac{\Omega_{\text{poverty}}}{D_{\text{total}}} = \frac{\$0.18 \text{ Trillion}}{\$16.5 \text{ Trillion}} \approx \mathbf{1.09\% \text{ per annum}}$$
+  Out-of-Pocket Friction      Preventive Care Rationing     Catastrophic Debt Shock
+ [ W_liquid < C_copay ]  ──> [ dA_human/dt Acceleration ] ──> [    \Delta L(1-p)    ]
+                                                                      │
+                                                                      │ \Delta A = \beta \cdot \Delta L
+                                                                      ▼
+                                                            Upper-Tail Yield Claim
+                                                            [     \Delta A(p)    ]
+```
 
-Alternatively, redirecting $\sim 20\%$ of annual debt-service payments ($J_{\text{debt}} \approx \$900 \text{B/year}$) paid to top asset holders fully covers the annual poverty gap.
+##### 1. Loss-Absorption Capacity and Acute Failure Sinks
+Lower-tail households hold near-zero or negative liquid reserves ($W_{\text{liquid}} \le 0$), leaving zero buffer against cash-flow volatility. When an acute health shock occurs due to delayed preventive care, the resulting emergency medical liabilities force the balance sheet into immediate insolvency, absorbed by accumulating high-cost, uncollateralized debt liabilities ($\Delta L$).
 
-##### B. Logarithmic Return Regulation
-In the stochastic Kesten framework ($W_{i,t+1} = s_{i,t} W_{i,t} + \eta_{i,t}$), the scale-invariant tail exponent $\alpha$ is governed by the net return spread:
+##### 2. Balance-Sheet Coupling Identity
+By double-entry macro-accounting identities, lower-tail debt expansion ($\Delta L(1-p)$) directly mirror-funds upper-tail financial asset expansion ($\Delta A(p)$):
 
-$$s_{i,t}(\tau_K) = e^{r_{i,t}(1 - \tau_K(w)) - g}$$
+$$\Delta A(p) = \beta \cdot \Delta L(1-p)$$
 
-To prevent the wealth distribution from entering **Regime 3 Super-Critical Fragility** ($b > 3.322$, $\alpha < 1.431$), progressive capital taxes or interest-rate caps must scale logarithmically with wealth rank $w = W/w_0$:
+where $\beta \approx 0.30 \text{--} 0.50$ represents the empirical **Debt-Mirror Coefficient** (Mian et al., 2020). Regressive out-of-pocket frictions continuously convert lower-tail health volatility into high-yield financial claims $\Delta A(p)$ held by upper-tail portfolios, generating a continuous debt-service drain ($J_{\text{debt}} = r_L \cdot L(1-p)$) that depresses aggregate demand and holds the natural rate of interest ($r^*$) near its effective lower bound.
+
+---
+
+#### VIII.C Quantitative Remediation Bounds & Dynamic Equilibrium
+
+To avoid static projection pitfalls, we formalize remediation as a dynamic equilibrium bound that restores balance-sheet neutrality.
+
+##### 1. Dynamic Equilibrium Bound: The Poverty Coverage Ratio ($\text{PCR}$)
+We define the **Poverty Coverage Ratio ($\text{PCR}$)** as the ratio of upper-tail progressive capital tax capacity to total lower-tail material and healthcare liquidity deficits:
+
+$$\text{PCR}(t) = \frac{\tau_K \cdot S(p_{\text{top}}, t)}{\sum_{i \in \text{bottom}} \left[ \max\left(0, C_{\text{essential}} - Y_i(t)\right) + \min\left(C_{\text{med}, i}, C_{\text{out\_of\_pocket\_max}}\right) \cdot \mathbf{1}_{\{W_{\text{liquid}, i} < C_{\text{copay}}\}} \right]}$$
+
+where $\tau_K$ is the progressive capital tax rate, $S(p_{\text{top}}, t)$ is aggregate upper-tail wealth ($p \le 0.10$), and the denominator aggregates essential living deficits alongside copay-gated medical frictions. Systemic equilibrium requires $\text{PCR}(t) \ge 1.0$.
+
+##### 2. Empirical Calibration and Benchmark Horizons
+As a static empirical baseline calibration, setting $\text{PCR} \ge 1.0$ against US national accounts ($Y_{\text{nat}} \approx \$20.0\text{ Trillion}$) evaluates as follows:
+
+* **Top 1% Gross Realizations ($Y_{1\%}$)**: Capturing $17.5\%$ of pre-tax national income generates $Y_{1\%} \approx \$3.50\text{ Trillion / year}$.
+* **Annual Poverty Gap ($\Omega_{\text{poverty}}$)**: Aggregate funds required to lift all households to the poverty threshold stand at $\Omega_{\text{poverty}} \approx \$180\text{ Billion / year}$ ($0.90\%$ of $Y_{\text{nat}}$).
+
+**Theorem 4 (Poverty Gap Coverage Horizon)**: Let $\Delta R_{1/2} = 0.50 \cdot Y_{1\%} = \$1.75\text{ Trillion}$ denote 50% of the net annual proceeds captured by the top 1% in a single year. The poverty eradication horizon $H_{\text{poverty}}$ funded by one year of this single-fraction allocation is:
+
+$$H_{\text{poverty}} = \frac{\Delta R_{1/2}}{\Omega_{\text{poverty}}} = \frac{\$1.75\text{ Trillion}}{\$0.18\text{ Trillion / year}} \approx \mathbf{9.72\text{ Years}}$$
+
+**Corollary 4.1 (Poverty Gap Credit Surcharge)**: Alternatively, total US household debt stands at $D_{\text{total}} \approx \$16.5\text{ Trillion}$. Funding Poverty Gap Insurance ($\Omega_{\text{poverty}} = \$180\text{B/year}$) directly from financial intermediation requires a universal credit surcharge $\theta_{\text{poverty}}$ across outstanding debt principal:
+
+$$\theta_{\text{poverty}} = \frac{\Omega_{\text{poverty}}}{D_{\text{total}}} = \frac{\$0.18\text{ Trillion}}{\$16.5\text{ Trillion}} \approx \mathbf{1.09\%\text{ per annum}}$$
+
+##### 3. Logarithmic Return Regulation ($\tau_K \propto \log(W)$)
+In stochastic Kesten wealth processes ($W_{i,t+1} = s_{i,t} W_{i,t} + \eta_{i,t}$), the tail exponent $\alpha$ is governed by the net return spread:
+
+$$\mathbb{E}\left[ s_{i,t}^\alpha \right] = 1 \quad \text{where} \quad s_{i,t}(\tau_K) = e^{r_{i,t}(1 - \tau_K(w)) - g}$$
+
+To regulate the tail and hold the system at or below the **Decadal Fixed Point** ($b^* = \log_2(10) \approx 3.322$, $\alpha^* = \frac{1}{\log_{10}(5)} \approx 1.431$), progressive capital taxation or credit surcharges must scale logarithmically with normalized wealth rank $w = W / w_0$, where $w_0 = Q(0.90)$:
 
 $$\tau_K(w) = \tau_0 + \kappa \cdot \log_{10}\left( \frac{W}{w_0} \right)$$
 
-By setting $\kappa \approx \frac{1}{\log_2(10)} \approx 0.301$, the net multiplicative factor $s_{i,t}$ is dynamically bounded. This suppresses "lucky streaks" in idiosyncratic capital returns, forces the tail parameter back toward $\alpha^* \approx 1.431$, and halts the non-homothetic debt accumulation of lower deciles.
+Setting $\kappa \approx \log_{10}(2) \approx 0.30103$ dynamically bounds the multiplicative factor $s_{i,t}$. This prevents the wealth distribution from entering **Regime 3 Super-Critical Fragility** ($b > 3.322$), dampens upper-tail return scaling, and eliminates lower-tail health debt shocks without introducing macro-distortions.
 
 ---
 
-#### 8.4 Capital Gains Tax Preferences vs. Systemic Operating Costs
+#### VIII.D Capital Gains Tax Preferences vs. Systemic Operating Costs
 
-A primary driver of upper-tail divergence is the tax treatment of realized capital gains, pass-through business profits, and corporate equity, which comprise over 60%–70% of top 0.1% portfolios. Annual realized capital gains for the top 1% fluctuate between $\$0.8 \text{ Trillion}$ and $\$1.2 \text{ Trillion}$.
+A primary driver of upper-tail divergence is the tax treatment of realized capital gains, pass-through business profits, and corporate equity, which comprise over 60%–70% of top 0.1% portfolios. Annual realized capital gains for the top 1% fluctuate between $\$0.8\text{ Trillion}$ and $\$1.2\text{ Trillion}$.
 
-Because capital gains enjoy preferential tax rates relative to ordinary labor income, the annual statutory tax preference granted to top-tail capital realizations ($\approx \$150\text{--}\$250 \text{ Billion/year}$) equals or exceeds the total annual operating cost of completely eradicating national poverty ($\Omega_{\text{poverty}} \approx \$180 \text{ Billion/year}$). Aligning capital gains taxation with ordinary labor rates provides a direct fiscal mechanism to absorb excess upper-tail liquidity and permanently stabilize lower-decile balance sheets.
+Because capital gains enjoy preferential tax rates relative to ordinary labor income, the annual statutory tax preference granted to top-tail capital realizations ($\approx \$150\text{--}\$250\text{ Billion/year}$) equals or exceeds the total annual operating cost of completely eradicating national poverty ($\Omega_{\text{poverty}} \approx \$180\text{ Billion/year}$). Aligning capital gains taxation with ordinary labor rates provides a direct fiscal mechanism to absorb excess upper-tail liquidity and permanently stabilize lower-decile balance sheets.
 
 ---
 
-## IX. Conclusion & Policy Implications
+**IX. Conclusion & Policy Implications**
 
-Refactoring upper-tail analysis around local decadal scale-invariance ($p \le 0.10$) alongside lower-tail liability sinks establishes a unified macroeconomic diagnostic:
-
-1. **Upper-Tail Fixed Point**: Smith, Zidar, and Zwick (2016/2021) data confirms that top-tail wealth hovers at the Decadal Halving Fixed Point ($b^* = \log_2(10) \approx 3.322$, $\alpha^* \approx 1.431$), where each decadal "slice of 9" holds slightly more wealth than the remaining tail above it across four orders of magnitude.
-2. **Lower-Tail Liability Absorption**: The bottom 90% acts as a structural liability sink—absorbing **30%+ of top 1% net debt claims** (Mian et al., 2020), providing finite labor hours bounded by wage saturation (Saez & Zucman, 2020), enduring institutional labor extraction via prison labor, and bearing the physical toll of elevated mortality hazard rates and infant mortality (Waldron, 2007; Chetty et al., 2016).
-3. **The Decadal Compounding Tax Framework**: Because per-capita wealth multiplies by $\approx 5\times$ per decadal tier while top portfolios earn higher capital returns $r(a)$ (Smith et al., 2021), capital tax progressivity ($\tau_K$) must compound progressively at every order of magnitude ($\tau_{K, \text{10\%}} < \tau_{K, \text{1\%}} < \tau_{K, \text{0.1\%}} < \tau_{K, \text{0.01\%}}$) to neutralize return heterogeneity and protect the capital base of lower deciles.
+1. **Upper-Tail Fixed Point Boundary**: Empirical capitalization data confirms that top-tail wealth hovers near the Decadal Halving Fixed Point ($b^* = \log_2(10) \approx 3.322$, $\alpha^* \approx 1.431$), where each decadal order of magnitude holds half the aggregate wealth of its predecessor across four orders of magnitude ($p \in [10^{-5}, 10^{-1}]$). Systemic stability requires enforcing this fixed point as an absolute upper bound to prevent transition into Regime 3 super-critical divergence ($b > 3.322$).
+2. **Lower-Tail Liability Balance-Sheet Coupling**: The bottom 90% acts as a structural balance-sheet mirror ($\Delta A = \beta \Delta L$), where regressive out-of-pocket health frictions ($\tau_{\text{health}}$), time poverty, and unit indivisibilities force deferred maintenance, converting lower-tail health volatility into high-yield upper-tail financial claims.
+3. **Sub-Critical Logarithmic Return Regulation**: Because per-capita wealth scales non-linearly while top portfolios earn asymmetric net returns ($r_{\text{net}} > g$), constraining the system strictly below the Decadal Halving Fixed Point ($b < 3.322$, $\alpha > 1.431$) requires continuous capital return regulation ($\tau_K(w) = \tau_0 + \kappa \cdot \log_{10}(W/w_0)$). Calibrating $\kappa \ge \log_{10}(2) \approx 0.30103$ dynamically suppresses the stochastic Kesten growth exponent, maintains a dynamic equilibrium bound of $\text{PCR} \ge 1.0$, and eliminates systemic lower-tail debt compounding without introducing macro-distortions.
 
 ---
 
