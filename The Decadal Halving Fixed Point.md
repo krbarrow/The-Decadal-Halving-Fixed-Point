@@ -84,7 +84,7 @@ $$b^* = \frac{1}{\log_{10}(2)} = \log_2(10) \approx 3.322$$
 Solving for the Pareto shape parameter $\alpha^*$ using $\alpha = \frac{b}{b-1}$:
 $$\alpha^* = \frac{\log_2(10)}{\log_2(10) - 1} = \frac{1}{1 - \log_{10}(2)} = \frac{1}{\log_{10}(5)} \approx 1.431 \quad \blacksquare$$
 
-**Corollary 1.1 (Decadal Halving Law)**: Under $b^* = \log_2(10)$, the cumulative upper-tail wealth share obeys a strict geometric halving sequence across decadal orders of magnitude:
+**Corollary 1.1 (Decadal Halving Principle)**: Under $b^* = \log_2(10)$, the cumulative upper-tail wealth share obeys a strict geometric halving sequence across decadal orders of magnitude:
 $$S(10^{-k}) = 2^{-k} \cdot S(1) = \frac{1}{2^k}$$
 Thus, the wealth contained in any decadal band $[10^{-k}, 10^{-(k+1)}]$ exactly equals the total cumulative wealth held by all individuals in the remaining upper tail $S(10^{-(k+1)})$.
 
@@ -258,7 +258,8 @@ Refactoring upper-tail analysis around local decadal scale-invariance ($p \le 0.
 
 1. **Upper-Tail Fixed Point**: Smith, Zidar, and Zwick (2016/2021) data confirms that top-tail wealth hovers at the Decadal Halving Fixed Point ($b^* = \log_2(10) \approx 3.322$, $\alpha^* \approx 1.431$), where each decadal "slice of 9" holds slightly more wealth than the remaining tail above it across four orders of magnitude.
 2. **Lower-Tail Liability Absorption**: The bottom 90% acts as a structural liability sink—absorbing **30%+ of top 1% net debt claims** (Mian et al., 2020), providing finite labor hours bounded by wage saturation (Saez & Zucman, 2020), enduring institutional labor extraction via prison labor, and bearing the physical toll of elevated mortality hazard rates and infant mortality (Waldron, 2007; Chetty et al., 2016).
-3. **The Decadal Compounding Tax Framework**: Because per-capita wealth multiplies by $\approx 5\times$ per decadal tier while top portfolios earn higher capital returns $r(a)$ (Smith et al., 2021), capital tax progressivity ($\tau_K$) must compound progressively at every order of magnitude ($\tau_{K, 10\%} < \tau_{K, 1\%} < \tau_{K, 0.1\%} < \tau_{K, 0.01\%}$) to neutralize return heterogeneity and protect the capital base of lower decades.
+3. **The Decadal Compounding Tax Framework**: Because per-capita wealth multiplies by $\approx 5\times$ per decadal tier while top portfolios earn higher capital returns $r(a)$ (Smith et al., 2021), capital tax progressivity ($\tau_K$) must compound progressively at every order of magnitude ($\tau_{K, \text{10\%}} < \tau_{K, \text{1\%}} < \tau_{K, \text{0.1\%}} < \tau_{K, \text{0.01\%}}$) to neutralize return heterogeneity and protect the capital base of lower deciles.
+
 
 ---
 
